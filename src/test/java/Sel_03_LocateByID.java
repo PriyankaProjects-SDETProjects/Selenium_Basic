@@ -56,17 +56,19 @@ public class Sel_03_LocateByID {
         System.out.println(err_msg.getText());
 
         Assert.assertEquals(err_msg.getText(), "Your email, password, IP address or location did not match");
-        user_name.clear();
-        password.clear();
+
+
     }
 
     @Test
     public void positive_TC(){
     //driver.navigate().refresh();
         WebElement user_name = driver.findElement(By.id("login-username"));
+        user_name.clear();
         user_name.sendKeys("contact+atb5x@thetestingacademy.com");
 
         WebElement password = driver.findElement(By.id("login-password"));
+        password.clear();
         password.sendKeys("ATBx@1234");
 
         WebElement submit = driver.findElement(By.id("js-login-btn"));
@@ -78,7 +80,7 @@ public class Sel_03_LocateByID {
         }
         //<span class="Fw(semi-bold) ng-binding" data-qa="lufexuloga">Aman</span>
         WebElement dashboard_text = driver.findElement(By.xpath("//*[@data-qa='lufexuloga']"));
-
+        System.out.println(dashboard_text.getText());
         Assert.assertEquals(dashboard_text.getText(),"Aman");
     }
     @AfterTest
